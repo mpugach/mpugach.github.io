@@ -1,0 +1,26 @@
+{
+  "name": "mpugach.github.io",
+  "version": "1.0.0",
+  "description": "Maksym Pugach Github Pages",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpugach/mpugach.github.io.git"
+  },
+  "keywords": [
+    "mpugach"
+  ],
+  "author": "Maksym Pugach",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mpugach/mpugach.github.io/issues"
+  },
+  "homepage": "https://github.com/mpugach/mpugach.github.io#readme",
+  "devDependencies": {
+    "connect": "3.4.1",
+    "serve-static": "1.10.2"
+  }
+}
