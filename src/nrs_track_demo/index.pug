@@ -7,8 +7,11 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(content='width=device-width, initial-scale=1' name='viewport')
 
-    script(src="/build/nrs_track_demo.js")
-    link(rel="stylesheet", media="all", href="/build/nrs_track_demo.css")
+    script(defer src='/build/nrs_track_demo.js')
+    script(defer src='//maps.googleapis.com/maps/api/js?key=AIzaSyAqGnKDmp6JX0d-L_FzNMLuDM1Hq0Mot5c&signed_in=true&callback=initMap')
+    link(rel='stylesheet', media='all', href='/build/nrs_track_demo.css')
 
   body
-    p demo
+    #map
+    #loading
+      span Loading...
