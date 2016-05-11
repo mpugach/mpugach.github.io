@@ -1,5 +1,5 @@
 const path = require('path');
-const debug = process.env.NODE_ENV !== "production";
+const debug = process.env.NODE_ENV !== 'production';
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -7,20 +7,19 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const sassLoaders = [
   'css-loader',
   'postcss-loader',
-  'sass-loader?indentedSyntax=sass&includePaths[]=' + path.resolve(__dirname, './src')
-]
+  'sass-loader?indentedSyntax=sass&includePaths[]=' + path.resolve(__dirname, './src'),
+];
 
 const extractTextPlugin = new ExtractTextPlugin('[name].css');
 
 const config = {
-  context: path.join(__dirname, "src"),
-  devtool: debug ? "inline-sourcemap" : null,
+  context: path.join(__dirname, 'src'),
+  devtool: debug ? 'inline-sourcemap' : null,
   entry: {
-    nrs_track_demo: [
+    nrs_track_demo: [// jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
       './nrs_track_demo/index.js',
       './nrs_track_demo/index.sass',
-      // './sass/nrs_track/index',
-    ]
+    ],
   },
   module: {
     loaders: [
@@ -34,18 +33,18 @@ const config = {
       },
       {
         test: /\.sass$/,
-        loader: ExtractTextPlugin.extract(sassLoaders.join('!'))
-      }
-    ]
+        loader: ExtractTextPlugin.extract(sassLoaders.join('!')),
+      },
+    ],
   },
   output: {
     filename: '[name].js',
     path: path.join(__dirname, './build'),
-    publicPath: '/build'
+    publicPath: '/build',
   },
   plugins: debug
   ? [
-    extractTextPlugin
+    extractTextPlugin,
   ]
   : [
     extractTextPlugin,
@@ -55,13 +54,13 @@ const config = {
   ],
   postcss: [
     autoprefixer({
-      browsers: ['last 2 versions']
-    })
+      browsers: ['last 2 versions'],
+    }),
   ],
   resolve: {
     extensions: ['', '.js', '.sass'],
-    root: [path.join(__dirname, './src')]
-  }
-}
+    root: [path.join(__dirname, './src')],
+  },
+};
 
-module.exports = config
+module.exports = config;

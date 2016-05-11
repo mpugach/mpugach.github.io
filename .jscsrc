@@ -1,0 +1,20 @@
+{
+  "preset": "airbnb",
+  "fileExtensions": [
+    ".js",
+    ".jsx"
+  ],
+  "excludeFiles": [
+    "build/**",
+    "node_modules/**"
+  ],
+  "validateQuoteMarks": {
+    "mark": "'",
+    "escape": true,
+    "ignoreJSX": true
+  },
+  "requireCamelCaseOrUpperCaseIdentifiers": {
+    "allowedSuffixes": ["_"]
+  },
+  "maximumLineLength": 120
+}
