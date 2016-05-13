@@ -10,6 +10,6 @@ export default function geocode(query) {
       polygon: 1,
     }
   ).then(
-    (response) => response.filter((obj) => obj.type === 'city')[0]
+    (response) => response[0]
   );
 };

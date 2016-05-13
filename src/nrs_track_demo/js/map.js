@@ -16,7 +16,7 @@ export const drawPath = (map, positions, color) => {
 
   const arrow = {
     icon: lineSymbol,
-    repeat: '10%',
+    repeat: '5%',
     offset: '5%',
   };
 
