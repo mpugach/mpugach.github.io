@@ -55,14 +55,28 @@ export function getEvents(key, calendarId) {
 export function addCoordinatesToEvents(events) {
   return function (geocoded) {
     let result = [];
+    let lastPositionMapping = {};
+    let offset = .01;
 
     for (let i = 0; i < events.length; i++) {
       if (geocoded[i]) {
-        result.push({
+        let newEvent = {
           ...events[i],
           lat: parseFloat(geocoded[i].lat),
           lng: parseFloat(geocoded[i].lon),
-        });
+        };
+
+        if (lastPositionMapping[newEvent.place]) {
+          newEvent.lat = lastPositionMapping[newEvent.place].lat + offset;
+          newEvent.lng = lastPositionMapping[newEvent.place].lng + offset;
+        }
+
+        lastPositionMapping[newEvent.place] = {
+          lat: newEvent.lat,
+          lng: newEvent.lng,
+        };
+
+        result.push(newEvent);
       } else {
         if (events[i].place !== '') notify('can not find: ' + events[i].place);
       }

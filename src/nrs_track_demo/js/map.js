@@ -1,10 +1,10 @@
 /*eslint-disable no-undef */
 
-export const drawMarker = (map, position, current = false) => new google.maps.Marker({
+export const drawMarker = (map, position, current, endDate) => new google.maps.Marker({
   animation: current && google.maps.Animation.BOUNCE,
   map: map,
   position: position,
-  title: position.place + '\n' + position.start,
+  title: position.place + '\n' + position.start + '\n' + endDate,
 });
 
 export const drawPath = (map, positions, color) => {

@@ -20,7 +20,7 @@ const handleFinalResult = function (map) {
     for (let i = 0; i < events.length; i++) {
       const current = Date.parse(events[i].start) <= Date.now() && Date.parse(events[i + 1].start) > Date.now();
 
-      drawMarker(map, events[i], current);
+      drawMarker(map, events[i], current, events[i + 1] && events[i + 1].start);
     }
 
     document.getElementById('loading').remove();
